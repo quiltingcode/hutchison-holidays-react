@@ -27,7 +27,7 @@ const Footer = () => {
               aria-label='Link to Linkedin company page'
             >
               <i className="fa-brands fa-linkedin me-2" />
-               Follow us
+               Follow me
             </a>
           </Col>
         </Row>
