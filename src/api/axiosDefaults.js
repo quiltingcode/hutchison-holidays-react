@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.baseURL = "https://dvh-django-tiktak.ew.r.appspot.com/";
+axios.defaults.baseURL = "https://hutchihols-4c93c52221af.herokuapp.com/";
 axios.defaults.headers.post["Content-Type"] = "multipart/form-data";
 axios.defaults.withCredentials = true;
 
