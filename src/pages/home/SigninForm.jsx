@@ -33,11 +33,11 @@ const Signin = () => {
       event.preventDefault();
       try {
         const { data:user } = await axios.post('dj-rest-auth/login/', signInData)
-        // console.log(user)
+        console.log(user)
         const { data } = await axios.post('/api/token/', signInData)
         localStorage.setItem('access_token', data.access);
         localStorage.setItem('refresh_token', data.refresh);
-        navigateTo('/labels')
+        navigateTo('/bookings')
       } catch(err){
           setErrors(err.response?.data)
       }
@@ -84,7 +84,7 @@ const Signin = () => {
               type="submit"
               className={`mt-3 btn text-center ${styles.LoginButton}`}
               size="md"
-              variant="info"
+              variant="secondary"
               id="LoginButton"
             >
               Sign in

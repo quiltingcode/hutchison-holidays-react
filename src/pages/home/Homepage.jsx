@@ -17,7 +17,7 @@ const HomePage = () => {
             <Container className={`${styles.Content} p-4 `}>
               <h2 className={styles.Header}>Welcome to </h2>
               <h1 className={styles.Header}>Hutchison Escapes</h1>
-              <h5 className="mt-3">Sign in to book a stay:</h5>
+              <h5 className="mt-3">Sign in to make a booking:</h5>
               <Signin />
             </Container>
           </Col>
