@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from './signin.module.scss';
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 
 const Signin = () => {
 
     const navigateTo = useNavigate();
+    const setCurrentUser = useSetCurrentUser();
 
     const [signInData, setSignInData] = useState({
       username: '',
@@ -30,16 +32,17 @@ const Signin = () => {
     const handleSignin = async (event) => {
       event.preventDefault();
       try {
-        await axios.post('dj-rest-auth/login/', signInData)
+        const { data:user } = await axios.post('dj-rest-auth/login/', signInData)
+        // console.log(user)
         const { data } = await axios.post('/api/token/', signInData)
         localStorage.setItem('access_token', data.access);
         localStorage.setItem('refresh_token', data.refresh);
-        // setIsAuthenticated(true);
         navigateTo('/labels')
       } catch(err){
           setErrors(err.response?.data)
       }
     };
+
 
     return (
       <>

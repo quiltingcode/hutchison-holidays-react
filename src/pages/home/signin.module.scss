@@ -1,49 +1,17 @@
-.Content {
-    background-color: #ffffffd1;
-    padding: 10px;
-    border-radius: 20px;
-    border: 1px solid #dadadf;
-    max-width: 50% !important;
-  }
-
-.Row {
-    height: calc(100vh - 81px);
-    background-image: url(../../assets/images/cala-vinyes-mallorca.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+.SigninForm {
+  margin-top: 32px;
 }
-
-.Header {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-}
-
 .Input {
-    background: #ffffff;
-    border: 1px solid #dbdce2;
-    box-sizing: border-box;
-    border-radius: 2px;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
-    font-size: 1rem;
+  background: #ffffff;
+  border: 1px solid #d1d5f3;
+  box-sizing: border-box;
+  border-radius: 2px;
+  text-align: center;
+  padding: 10px;
 }
-
-.Link {
-    text-decoration: none;
-    text-align: center;
-    display: block;
-    margin: auto;
-  }
-
-.Link span {
-color: #20b4ee;
-}
-
 /* for mobile screen size from 576px wide and down */
 @media screen and (max-width: 576px) {
-    .Content {
-       max-width: 95% !important;
-    }
+  .Content {
+     max-width: 95% !important;
   }
+}

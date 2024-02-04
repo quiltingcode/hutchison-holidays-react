@@ -1,44 +1,45 @@
-
-
 .HomepageContainer {
-    height: 78vh;
-    background-color: rgb(235, 239, 246);
-    // background-image: url(../../assets/images/connecting-dots.jpg);
-    // background-size: cover;
-    // background-repeat: no-repeat;
-    padding-top: 20px;
+  height: 81vh;
+  background-color: rgb(235, 239, 246);
+  background-image: url(../../assets/images/cala-vinyes-drone.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 20px;
 
-    .SignInCol {
-        height: 320px;
-      }
-
-    h2 {
-        font-family: 'DM Sans', sans-serif;
+  .SignInCol {
+      height: 320px;
     }
 
-    .Content {
-        background-color: #ffffff;
-        padding: 10px;
-        border-radius: 2px;
-        border: 1px solid #dadadf;
-      }
+  h2 {
+      font-family: 'DM Sans', sans-serif;
+  }
 
-    .FillerImage {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
+  .Content {
+      background-color: #edf2f3e4;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #dadadf;
+      width: 50vw;
     }
 
-    .Footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        background-color: #1d486a;
-        color: white;
-        text-align: center;
-    }
+  .FillerImage {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  }
+
+  .Footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #1d486a;
+      color: white;
+      text-align: center;
+  }
 }
+
+
 
 
 

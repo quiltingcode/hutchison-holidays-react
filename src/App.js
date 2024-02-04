@@ -6,12 +6,14 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Homepage from './pages/home/Homepage';
 import Footer from './components/footer/Footer';
+import CalendarPage from './pages/booking/CalendarPage';
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/bookings" element={<CalendarPage />} />
       </Routes>
       <Footer />
     </>
