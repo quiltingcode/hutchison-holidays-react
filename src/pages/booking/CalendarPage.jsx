@@ -4,9 +4,9 @@ import styles from './calendarpage.module.scss';
 
 const CalendarPage = () => {
     return (
-        <Container className={styles.PageContainer} fluid>
-
-        </Container>
+        <div>
+            This page shows the calendar
+        </div>
     )
 }
 

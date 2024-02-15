@@ -4,7 +4,6 @@ import { axiosRes, axiosReq } from '../api/axiosDefaults';
 import { useNavigate } from "react-router-dom";
 import { removeTokenTimestamp, shouldRefreshToken } from '../utils/Utils';
 
-
 export const CurrentUserContext = createContext()
 export const SetCurrentUserContext = createContext()
 
@@ -17,7 +16,6 @@ export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const navigateTo = useNavigate();
 
-
   const handleMount = async () => {
     try {
       const accessToken = localStorage.getItem('access_token');
@@ -26,7 +24,7 @@ export const CurrentUserProvider = ({ children }) => {
       };
       const { data } = await axios.get('dj-rest-auth/user/', { headers });
       // console.log('user data', data);
-      setCurrentUser(data.first_name);
+      setCurrentUser(data.username);
     } catch (error) {
       console.error('Error fetching user data:', error);
       setCurrentUser(null); // Set current user to null on error

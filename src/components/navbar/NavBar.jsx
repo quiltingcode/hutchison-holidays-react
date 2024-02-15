@@ -1,13 +1,11 @@
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import styles from './navbar.module.scss';
 import EdiLogo from '../../assets/images/bay1.jpg';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 import { useCurrentUser, useSetCurrentUser } from '../../contexts/CurrentUserContext';
 
 const NavBar = () => {
@@ -32,26 +30,12 @@ const NavBar = () => {
   const loggedInIcons = (
     <>
       <NavLink 
-        to="/labels"
+        to="/bookings"
         className={`ms-auto ${styles.NavLink}`}
       >
-        Labels
+        Bookings
       </NavLink>
-      <NavLink
-        to="/labels/errors"
-        className={`ms-auto ${styles.NavLink}`}
-      >
-        Errors
-      </NavLink>
-      <NavLink 
-        to="/setup"
-        className={`ms-auto ${styles.NavLink}`}
-      >
-        Setup
-      </NavLink>
-      {currentUser && (
-          <p className={`mt-2 ms-2 ${styles.Welcome}`}>Welcome back {currentUser}!</p>
-      )}
+      
       
       <div className='d-block ms-auto me-0'>
       <Button
@@ -71,6 +55,7 @@ const NavBar = () => {
   )
 
   const loggedOutIcons = (
+    <>
     <div className='d-block ms-auto me-0'>
         <Button
       as={Link}
@@ -82,7 +67,19 @@ const NavBar = () => {
       <i className="fa-solid fa-house"></i>
     </Button>
     </div>
-    
+    <div className='d-block ms-auto me-0'>
+    <Button
+    as={Link}
+    to="/"
+    onClick={handleSignOut}
+    variant="outline-info"
+    size="md"
+    className="ms-5"
+  >
+    Log out
+  </Button>
+    </div>
+    </>
   );
 
     return (

@@ -12,7 +12,7 @@ export const useRedirect = (userAuthStatus) => {
             try {
                 await axios.post('/api/token/refresh/', { refresh: refreshToken })
                 if (userAuthStatus === 'loggedIn'){
-                    navigateTo('/calendar')
+                    navigateTo('/bookings')
                 }
             } catch (err) {
                 if (userAuthStatus === 'loggedOut'){
@@ -22,6 +22,6 @@ export const useRedirect = (userAuthStatus) => {
         };
 
         handleMount();
-    }, [navigateTo, userAuthStatus]);
+    }, [navigateTo, userAuthStatus, refreshToken]);
 
 };

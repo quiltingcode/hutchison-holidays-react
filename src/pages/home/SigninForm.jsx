@@ -5,13 +5,15 @@ import styles from './signin.module.scss';
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
-import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { setTokenTimestamp } from "../../utils/Utils";
 
 
 const Signin = () => {
 
     const navigateTo = useNavigate();
     const setCurrentUser = useSetCurrentUser();
+    const currentUser = useCurrentUser();
 
     const [signInData, setSignInData] = useState({
       username: '',
@@ -37,11 +39,28 @@ const Signin = () => {
         const { data } = await axios.post('/api/token/', signInData)
         localStorage.setItem('access_token', data.access);
         localStorage.setItem('refresh_token', data.refresh);
+        
+        setCurrentUser(user)
+        console.log('set user')
         navigateTo('/bookings')
       } catch(err){
           setErrors(err.response?.data)
       }
     };
+
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+      try {
+          const {data} = await axios.post('dj-rest-auth/login/', signInData)
+          console.log(data)
+          setCurrentUser(data.user);
+          console.log(currentUser)
+          setTokenTimestamp(data);
+          navigateTo('/bookings');
+      } catch(err){
+          setErrors(err.response?.data)
+      }
+  };
 
 
     return (
