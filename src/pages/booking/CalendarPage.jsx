@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import Container from 'react-bootstrap/Container';
@@ -8,11 +8,39 @@ import styles from './calendarpage.module.scss';
 import LatestBookings from './LatestBookings';
 import Button from 'react-bootstrap/Button';
 import BookingForm from './BookingForm';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import { axiosReq, axiosRes } from '../../api/axiosDefaults';
+import { useLocation } from 'react-router-dom';
 
 const CalendarPage = () => {
 
     const [bookings, setBookings] = useState({results: []})
     const [value, onChange] = useState(new Date());
+    const [hasLoaded, setHasLoaded] = useState(false);
+    const { pathname } = useLocation();
+    const currentUser = useCurrentUser();
+
+    useEffect(() => {
+        const fetchBookings = async () => {
+          try {
+            const { data } = await axiosRes.get(`/bookings/`);
+            console.log('bookings', data)
+            setBookings(data);
+            setHasLoaded(true);
+          } catch (err) {
+            console.log(err);
+          }
+        };
+    
+        setHasLoaded(false);
+        const timer = setTimeout(() => {
+          fetchBookings();
+        }, 1000)
+        return () => {
+          clearTimeout(timer)
+        }
+        
+      }, [pathname, currentUser]);
 
     return (
       <Container className={styles.PageContainer} fluid>
