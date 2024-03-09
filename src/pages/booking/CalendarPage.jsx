@@ -5,12 +5,12 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import styles from './calendarpage.module.scss';
-import LatestBookings from './LatestBookings';
 import Button from 'react-bootstrap/Button';
 import BookingForm from './BookingForm';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { axiosReq, axiosRes } from '../../api/axiosDefaults';
 import { useLocation } from 'react-router-dom';
+import LatestBookings from './latest-bookings/LatestBookings';
 
 const CalendarPage = () => {
 

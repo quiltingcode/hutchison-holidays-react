@@ -1,0 +1,15 @@
+.Content {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid #dadadf;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+.ErrorLogItem {
+  font-size: 0.9rem;
+}
+
+.ScrollContainer {
+  max-height: 80vh;
+  overflow-y: auto;
+}
