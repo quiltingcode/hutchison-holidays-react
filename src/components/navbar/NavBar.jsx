@@ -35,6 +35,12 @@ const NavBar = () => {
       >
         Bookings
       </NavLink>
+      <NavLink 
+        to="/profile"
+        className={`ms-auto ${styles.NavLink}`}
+      >
+        My Profile
+      </NavLink>
       
       
       <div className='d-block ms-auto me-0'>
@@ -42,7 +48,7 @@ const NavBar = () => {
       as={Link}
       to="/"
       onClick={handleSignOut}
-      variant="outline-info"
+      variant="outline-secondary"
       size="md"
       className="ms-5"
     >
@@ -55,7 +61,7 @@ const NavBar = () => {
   )
 
   const loggedOutIcons = (
-    <>
+ 
     <div className='d-block ms-auto me-0'>
         <Button
       as={Link}
@@ -67,19 +73,7 @@ const NavBar = () => {
       <i className="fa-solid fa-house"></i>
     </Button>
     </div>
-    <div className='d-block ms-auto me-0'>
-    <Button
-    as={Link}
-    to="/"
-    onClick={handleSignOut}
-    variant="outline-info"
-    size="md"
-    className="ms-5"
-  >
-    Log out
-  </Button>
-    </div>
-    </>
+  
   );
 
     return (
